@@ -1,0 +1,367 @@
+Script started on 2020-03-05 00:47:23-08:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="80" LINES="24"]
+]0;sskarmaly@abbott:~/cs1400/project[01;32msskarmaly@abbott[01;34m ~/cs1400/project $[00m pwd
+/user/sskarmaly/cs1400/project
+]0;sskarmaly@abbott:~/cs1400/project[01;32msskarmaly@abbott[01;34m ~/cs1400/project $[00m ls -l
+total 47
+-rw------- 1 sskarmaly cpp 1911 Mar  5 00:45 Diamond.class
+-rw------- 1 sskarmaly cpp 2325 Mar  5 00:45 Diamond.java
+-rw------- 1 sskarmaly cpp 1461 Feb 12 20:46 Season.class
+-rw------- 1 sskarmaly cpp 1554 Feb 15 19:41 Season.java
+-rw------- 1 sskarmaly cpp  887 Feb 12 17:23 Season.java.save
+-rw------- 1 sskarmaly cpp  873 Feb 12 18:51 Season.java.save.1
+-rw------- 1 sskarmaly cpp 2459 Feb 22 12:57 SlotMachineSimulator.class
+-rw------- 1 sskarmaly cpp 3056 Feb 21 00:07 SlotMachineSimulator.java
+-rw------- 1 sskarmaly cpp 3102 Feb 20 23:33 SlotMachineSimulator.java.save
+-rw------- 1 sskarmaly cpp 1493 Feb  5 23:34 Story.class
+-rw------- 1 sskarmaly cpp 1220 Feb 12 18:09 Story.java
+-rw------- 1 sskarmaly cpp 2719 Feb  5 23:35 [0m[00;32mpj1.txt[0m
+-rw------- 1 sskarmaly cpp 6222 Feb 12 21:06 [00;32mpj2.txt[0m
+-rw------- 1 sskarmaly cpp 7000 Feb 21 00:10 [00;32mpj3.txt[0m
+-rw------- 1 sskarmaly cpp    0 Mar  5 00:47 [00;32mpj4.txt[0m
+]0;sskarmaly@abbott:~/cs1400/project[01;32msskarmaly@abbott[01;34m ~/cs1400/project $[00m cat Diamond.java
+// Shayan Karmaly
+// CS1400, section 02
+// Project 4 - Display diamonds
+// February 26th, 2020
+import java.util.Scanner;
+
+public class Diamond{
+
+public static void main(String [] args)
+{ 
+    int size =-1;
+    String choice;
+    Scanner scnr=new Scanner(System.in);
+
+    while(size ==-1)
+    {
+        System.out.print("enter diamond size " + "(" +"\"short\"" +"," + "\"average\"" +" or " + "\"tall\"" +")" + ": ");
+        choice = scnr.nextLine();
+        size =checkSize(choice);
+    }
+
+    System.out.print("enter pattern character: ");
+    char ch = scnr.next().charAt(0);
+    Diamond.displayDiamond(size,ch);
+    Diamond.displayHollowDiamond(size,ch);
+}
+
+public static int checkSize(String size){
+
+if(size.equals("short"))
+{
+    return 6;
+}
+
+if(size.equals("average"))
+{
+    return 12;
+}
+
+if(size.equals("tall"))
+{
+    return 24;
+}
+    return -1;
+}
+
+public static void displayHollowDiamond(int size,char ch){
+
+int i, j, space, k = 0;
+
+System.out.println();
+System.out.println();
+System.out.println();
+
+for (i = 1; i <= size; i++) 
+{
+    for (j = 1; j <= size - i; j++) 
+    {
+        System.out.print(" ");
+    }
+
+    while (k != (2 * i - 1)) 
+    {
+        if (k == 0 || k == 2 * i - 2)
+            System.out.print(ch);
+        else
+            System.out.print(" ");
+            k++;
+    }   
+    k = 0;
+    System.out.println();
+}
+size--;
+
+for (i = size; i >= 1; i--) 
+{
+    for (j = 0; j <= size - i; j++) 
+    {
+        System.out.print(" ");
+    }
+    k = 0;
+
+    while (k != (2 * i - 1)) 
+    {
+        if (k == 0 || k == 2 * i - 2)
+            System.out.print(ch);
+        else
+            System.out.print(" ");
+            k++;
+    }
+    System.out.println();
+}
+}
+
+public static void displayDiamond(int size,char ch)
+{
+    int i=1;
+    int j;
+
+    while(i<=size)
+    {
+        j=1;
+        while(j++<=size-i)
+        {
+            System.out.print(" ");
+        }
+        j=1;
+        while(j++<=i*2-1)
+        {
+            System.out.print(ch);
+        }
+            System.out.println();
+            i++;
+        }
+        i=size-1;
+
+    while(i>0)
+    {
+        j=1;
+        while(j++<=size-i)
+        {
+            System.out.print(" ");
+        }   
+        j=1;
+        while(j++<=i*2-1)
+        {
+            System.out.print(ch);
+        }
+        System.out.println();
+        i--;
+        }
+
+}
+}
+]0;sskarmaly@abbott:~/cs1400/project[01;32msskarmaly@abbott[01;34m ~/cs1400/project $[00m javac Diamond.java
+]0;sskarmaly@abbott:~/cs1400/project[01;32msskarmaly@abbott[01;34m ~/cs1400/project $[00m Di[K[Kjava Diamond
+enter diamond size ("short","average" or "tall"): short
+enter pattern character: *
+     *
+    ***
+   *****
+  *******
+ *********
+***********
+ *********
+  *******
+   *****
+    ***
+     *
+
+
+
+     *
+    * *
+   *   *
+  *     *
+ *       *
+*         *
+ *       *
+  *     *
+   *   *
+    * *
+     *
+]0;sskarmaly@abbott:~/cs1400/project[01;32msskarmaly@abbott[01;34m ~/cs1400/project $[00m java Diamond
+enter diamond size ("short","average" or "tall"): average
+enter pattern character: * $
+           $
+          $$$
+         $$$$$
+        $$$$$$$
+       $$$$$$$$$
+      $$$$$$$$$$$
+     $$$$$$$$$$$$$
+    $$$$$$$$$$$$$$$
+   $$$$$$$$$$$$$$$$$
+  $$$$$$$$$$$$$$$$$$$
+ $$$$$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$$$$
+ $$$$$$$$$$$$$$$$$$$$$
+  $$$$$$$$$$$$$$$$$$$
+   $$$$$$$$$$$$$$$$$
+    $$$$$$$$$$$$$$$
+     $$$$$$$$$$$$$
+      $$$$$$$$$$$
+       $$$$$$$$$
+        $$$$$$$
+         $$$$$
+          $$$
+           $
+
+
+
+           $
+          $ $
+         $   $
+        $     $
+       $       $
+      $         $
+     $           $
+    $             $
+   $               $
+  $                 $
+ $                   $
+$                     $
+ $                   $
+  $                 $
+   $               $
+    $             $
+     $           $
+      $         $
+       $       $
+        $     $
+         $   $
+          $ $
+           $
+]0;sskarmaly@abbott:~/cs1400/project[01;32msskarmaly@abbott[01;34m ~/cs1400/project $[00m java tall[K[K[K[Kdiam[K[K[K[KDiamond
+enter diamond size ("short","average" or "tall"): tall
+enter pattern character: ^
+                       ^
+                      ^^^
+                     ^^^^^
+                    ^^^^^^^
+                   ^^^^^^^^^
+                  ^^^^^^^^^^^
+                 ^^^^^^^^^^^^^
+                ^^^^^^^^^^^^^^^
+               ^^^^^^^^^^^^^^^^^
+              ^^^^^^^^^^^^^^^^^^^
+             ^^^^^^^^^^^^^^^^^^^^^
+            ^^^^^^^^^^^^^^^^^^^^^^^
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+            ^^^^^^^^^^^^^^^^^^^^^^^
+             ^^^^^^^^^^^^^^^^^^^^^
+              ^^^^^^^^^^^^^^^^^^^
+               ^^^^^^^^^^^^^^^^^
+                ^^^^^^^^^^^^^^^
+                 ^^^^^^^^^^^^^
+                  ^^^^^^^^^^^
+                   ^^^^^^^^^
+                    ^^^^^^^
+                     ^^^^^
+                      ^^^
+                       ^
+
+
+
+                       ^
+                      ^ ^
+                     ^   ^
+                    ^     ^
+                   ^       ^
+                  ^         ^
+                 ^           ^
+                ^             ^
+               ^               ^
+              ^                 ^
+             ^                   ^
+            ^                     ^
+           ^                       ^
+          ^                         ^
+         ^                           ^
+        ^                             ^
+       ^                               ^
+      ^                                 ^
+     ^                                   ^
+    ^                                     ^
+   ^                                       ^
+  ^                                         ^
+ ^                                           ^
+^                                             ^
+ ^                                           ^
+  ^                                         ^
+   ^                                       ^
+    ^                                     ^
+     ^                                   ^
+      ^                                 ^
+       ^                               ^
+        ^                             ^
+         ^                           ^
+          ^                         ^
+           ^                       ^
+            ^                     ^
+             ^                   ^
+              ^                 ^
+               ^               ^
+                ^             ^
+                 ^           ^
+                  ^         ^
+                   ^       ^
+                    ^     ^
+                     ^   ^
+                      ^ ^
+                       ^
+]0;sskarmaly@abbott:~/cs1400/project[01;32msskarmaly@abbott[01;34m ~/cs1400/project $[00m java Diamond
+enter diamond size ("short","average" or "tall"): short
+enter pattern character: +
+     +
+    +++
+   +++++
+  +++++++
+ +++++++++
++++++++++++
+ +++++++++
+  +++++++
+   +++++
+    +++
+     +
+
+
+
+     +
+    + +
+   +   +
+  +     +
+ +       +
++         +
+ +       +
+  +     +
+   +   +
+    + +
+     +
+]0;sskarmaly@abbott:~/cs1400/project[01;32msskarmaly@abbott[01;34m ~/cs1400/project $[00m exit
+
+Script done on 2020-03-05 00:48:53-08:00 [COMMAND_EXIT_CODE="0"]

@@ -1,0 +1,155 @@
+Script started on 2020-02-12 20:43:42-08:00 [TERM="xterm-256color" TTY="/dev/pts/18" COLUMNS="80" LINES="24"]
+]0;sskarmaly@costello:~/cs1400/project[01;32msskarmaly@costello[01;34m ~/cs1400/project $[00m pwd
+/user/sskarmaly/cs1400/project
+]0;sskarmaly@costello:~/cs1400/project[01;32msskarmaly@costello[01;34m ~/cs1400/project $[00m ls -1
+Season.class
+Season.java
+Season.java.save
+Season.java.save.1
+Story.class
+Story.java
+[0m[00;32mpj1.txt[0m
+[00;32mpj2.txt[0m
+]0;sskarmaly@costello:~/cs1400/project[01;32msskarmaly@costello[01;34m ~/cs1400/project $[00m cat Season.java
+// Shayan Karmaly
+// CS1400, section 02
+// Project 2 - determining the seasons
+// 9 February 2020
+
+   import java.util.Scanner;
+
+ public class Season 
+ {
+    public static void main (String[] args) 
+    {
+       Scanner kb = new Scanner(System.in);
+       int month, day;
+       String season = "";
+
+       System.out.print("Enter month: ");
+       month = kb.nextInt();
+
+       if(month > 12 || month < 1)
+       {
+          System.out.print("Invalid month!");
+          System.exit(0);
+       }
+
+       System.out.print("Enter day: ");
+       day = kb.nextInt();
+
+       if(day > 31 || day < 1)
+       {
+          System.out.print("Invalid day!");
+          System.exit(0);
+       }
+
+       if(month == 1 ||  month == 2 || month == 3)
+       {
+          season = "Winter";
+       }
+       else if(month == 4 || month == 5 || month == 6)
+       {
+          season = "Spring";
+       }
+       else if(month == 7 || month == 8 || month ==9)
+       {
+          season = "Summer";
+       }
+       else if(month == 10 || month == 11 || month == 12 )
+       {
+          season = "Fall";
+       }
+
+       if(month % 3 ==0 && day>=21)
+       {
+       if(season.equals("Winter"))
+       {
+          season = "Spring";
+       }
+       else if(season.equals("Spring"))
+       {
+          season = "Summer";
+       }
+       else if(season.equals("Summer"))
+       {
+          season = "Fall";
+       }
+       else 
+       {
+          season = "Winter";
+       }
+       }
+
+        System.out.print(month +"\\" + day +" is in the " + season + " season.");
+
+
+}
+     }
+]0;sskarmaly@costello:~/cs1400/project[01;32msskarmaly@costello[01;34m ~/cs1400/project $[00m javac Season.jaa[Kva
+]0;sskarmaly@costello:~/cs1400/project[01;32msskarmaly@costello[01;34m ~/cs1400/project $[00m Season[K[K[K[K[K[Kjava Season 
+Enter month: 1
+Enter day: 5
+1\5 is in the Winter season.]0;sskarmaly@costello:~/cs1400/project[01;32msskarmaly@costello[01;34m ~/cs1400/project $[00m java Season 
+Enter month: 2
+Enter day: 5
+2\5 is in the Winter season.]0;sskarmaly@costello:~/cs1400/project[01;32msskarmaly@costello[01;34m ~/cs1400/project $[00m java Season 
+Enter month: 4
+Enter day: 10
+4\10 is in the Spring season.]0;sskarmaly@costello:~/cs1400/project[01;32msskarmaly@costello[01;34m ~/cs1400/project $[00m java Season 
+Enter month: 5
+Enter day: 10
+5\10 is in the Spring season.]0;sskarmaly@costello:~/cs1400/project[01;32msskarmaly@costello[01;34m ~/cs1400/project $[00m java Season 
+Enter month: 7
+Enter day: 15
+7\15 is in the Summer season.]0;sskarmaly@costello:~/cs1400/project[01;32msskarmaly@costello[01;34m ~/cs1400/project $[00m java Season 
+Enter month: 8
+Enter day: 15
+8\15 is in the Summer season.]0;sskarmaly@costello:~/cs1400/project[01;32msskarmaly@costello[01;34m ~/cs1400/project $[00m java Season 
+Enter month: 10
+Enter day: 20
+10\20 is in the Fall season.]0;sskarmaly@costello:~/cs1400/project[01;32msskarmaly@costello[01;34m ~/cs1400/project $[00m java Season 
+Enter month: 11
+Enter day: 20
+11\20 is in the Fall season.]0;sskarmaly@costello:~/cs1400/project[01;32msskarmaly@costello[01;34m ~/cs1400/project $[00m java Season 
+Enter month: 3
+Enter day: 20
+3\20 is in the Winter season.]0;sskarmaly@costello:~/cs1400/project[01;32msskarmaly@costello[01;34m ~/cs1400/project $[00m java Season 
+Enter month: 3
+Enter day: 21
+3\21 is in the Spring season.]0;sskarmaly@costello:~/cs1400/project[01;32msskarmaly@costello[01;34m ~/cs1400/project $[00m java Season 
+Enter month: 6
+Enter day: 21
+6\21 is in the Summer season.]0;sskarmaly@costello:~/cs1400/project[01;32msskarmaly@costello[01;34m ~/cs1400/project $[00m java Season 
+Enter month: 9
+Enter day: 20
+9\20 is in the Summer season.]0;sskarmaly@costello:~/cs1400/project[01;32msskarmaly@costello[01;34m ~/cs1400/project $[00m java Season 
+Enter month: 9
+Enter day: 21
+9\21 is in the Fall season.]0;sskarmaly@costello:~/cs1400/project[01;32msskarmaly@costello[01;34m ~/cs1400/project $[00m java Season 
+Enter month: 12
+Enter day: 20
+12\20 is in the Fall season.]0;sskarmaly@costello:~/cs1400/project[01;32msskarmaly@costello[01;34m ~/cs1400/project $[00m 12[K[Kjava Season 
+Enter month: 12
+Enter day: 20
+12\20 is in the Fall season.]0;sskarmaly@costello:~/cs1400/project[01;32msskarmaly@costello[01;34m ~/cs1400/project $[00m java Season 
+Enter month: 12
+Enter day: 21
+12\21 is in the Winter season.]0;sskarmaly@costello:~/cs1400/project[01;32msskarmaly@costello[01;34m ~/cs1400/project $[00m java Season 
+Enter month: 0
+Invalid month!]0;sskarmaly@costello:~/cs1400/project[01;32msskarmaly@costello[01;34m ~/cs1400/project $[00m java Season 
+Enter month: 0
+Invalid month!]0;sskarmaly@costello:~/cs1400/project[01;32msskarmaly@costello[01;34m ~/cs1400/project $[00m java Season 
+Enter month: -3
+Invalid month!]0;sskarmaly@costello:~/cs1400/project[01;32msskarmaly@costello[01;34m ~/cs1400/project $[00m java Season 
+Enter month: 13
+Invalid month!]0;sskarmaly@costello:~/cs1400/project[01;32msskarmaly@costello[01;34m ~/cs1400/project $[00m java Season 
+Enter month: 1
+Enter day: 0
+Invalid day!]0;sskarmaly@costello:~/cs1400/project[01;32msskarmaly@costello[01;34m ~/cs1400/project $[00m java Season 
+Enter month: 1
+Enter day: -5
+Invalid day!]0;sskarmaly@costello:~/cs1400/project[01;32msskarmaly@costello[01;34m ~/cs1400/project $[00m exit
+exit
+
+Script done on 2020-02-12 21:06:45-08:00 [COMMAND_EXIT_CODE="0"]

@@ -1,0 +1,259 @@
+Script started on 2020-02-18 22:31:52-08:00 [TERM="xterm-256color" TTY="/dev/pts/2" COLUMNS="80" LINES="24"]
+]0;sskarmaly@costello:~/cs1400[01;32msskarmaly@costello[01;34m ~/cs1400 $[00m pwd
+/user/sskarmaly/cs1400
+]0;sskarmaly@costello:~/cs1400[01;32msskarmaly@costello[01;34m ~/cs1400 $[00m ls -l
+total 21
+-rw------- 1 sskarmaly cpp  513 Jan 23 11:24 FirstProgram.class
+-rw------- 1 sskarmaly cpp  238 Jan 23 11:23 FirstProgram.java
+-rw------- 1 sskarmaly cpp 1657 Feb 18 10:34 GuessingGame.java
+-rw------- 1 sskarmaly cpp 1417 Feb 18 22:31 StringComparison.class
+-rw------- 1 sskarmaly cpp 2573 Feb 18 22:31 StringComparison.java
+-rw------- 1 sskarmaly cpp  435 Feb 18 10:57 StringComparison.java.save
+-rw------- 1 sskarmaly cpp    0 Feb 18 22:20 StringComparisonWithWildCard
+-rw------- 1 sskarmaly cpp  996 Feb 18 22:21 StringComparisonWithWildCard.class
+-rw------- 1 sskarmaly cpp  810 Feb 18 22:20 StringComparisonWithWildCard.java
+-rw------- 1 sskarmaly cpp  315 Feb 18 11:36 StringComparisonWithWildCard.java.save
+-rw------- 1 sskarmaly cpp  331 Feb 18 14:26 StringComparisonWithWildCard.java.save.1
+-rw------- 1 sskarmaly cpp    0 Feb 18 22:31 [0m[00;32mice2.txt[0m
+-rw------- 1 sskarmaly cpp  819 Feb 18 10:37 [00;32mmywork.txt[0m
+drwx--s--x 2 sskarmaly cpp   10 Feb 12 20:43 [01;34mproject[0m
+]0;sskarmaly@costello:~/cs1400[01;32msskarmaly@costello[01;34m ~/cs1400 $[00m cat Sr[KtringComparison.java
+import java.util.Scanner;
+
+public class StringComparison
+{
+   public static void main(String[] args)
+   {
+      Scanner input = new Scanner(System.in);
+
+      System.out.println("Enter three strings: ");
+      String s1 = input.nextLine();
+      String s2 = input.nextLine();
+      String s3 = input.nextLine();
+
+
+      String largest = null;
+      String middle = null;
+      String smallest = null;
+
+      if (s1.compareTo(s2) == 0 && s2.compareTo(s3) == 0)
+      {
+         largest = s1;
+         middle = s2;
+         smallest = s3;
+      }
+
+      if (s1.compareTo(s2) == 0)
+      {
+         if (s1.compareTo(s3) > 0)
+         {
+            largest = s1;
+            middle = s2;
+            smallest = s3;
+            }
+            else if (s1.compareTo(s3) < 0)
+            {
+            largest = s3;
+            middle = s1;
+            smallest = s2;
+            }
+      }
+
+      if (s2.compareTo(s3) == 0)
+      {
+         if (s2.compareTo(s1) > 0)
+         {
+            largest = s2;
+            middle = s3;
+            smallest = s1;
+         }
+         else if (s2.compareTo(s1) < 0)
+         {
+            largest = s1;
+            middle = s2;
+            smallest = s3;
+         }
+      }
+
+      if (s1.compareTo(s3) == 0)
+      {
+         if (s1.compareTo(s2) > 0)
+         {
+            largest = s1;
+            middle = s3;
+            smallest = s2;
+         }
+         else if (s1.compareTo(s2) < 0)
+         {
+            largest = s2;
+            middle = s1;
+            smallest = s3;
+         }
+      }
+
+      if (s1.compareTo(s2) > 0 && s1.compareTo(s3) > 0)
+      {
+         largest = s1;
+
+         if (s2.compareTo(s3) > 0)
+         {
+         middle = s2;
+         smallest = s3;
+         }
+         else if (s2.compareTo(s3) < 0)
+         {
+            middle = s3;
+            smallest = s2;
+         }
+      }
+      else if (s2.compareTo(s1) > 0 && s2.compareTo(s3) > 0)
+      {
+         largest = s2;
+
+         if (s1.compareTo(s3) > 0)
+         {
+            middle = s1;
+            smallest = s3;
+         }
+         else if (s1.compareTo(s3) < 0)
+         {
+         middle = s3;
+         smallest = s1;
+         }
+      }
+      else if (s3.compareTo(s2) > 0 && s3.compareTo(s1) > 0)
+      {
+      largest = s3;
+
+      if (s2.compareTo(s1) > 0)
+      {
+         middle = s2;
+         smallest = s1;
+      }
+      else if (s2.compareTo(s1) < 0)
+      {
+         middle = s1;
+         smallest = s2;
+      }
+   }
+
+        System.out.println(smallest);
+        System.out.println(middle);
+        System.out.println(largest);
+    }
+}
+
+]0;sskarmaly@costello:~/cs1400[01;32msskarmaly@costello[01;34m ~/cs1400 $[00m javacC[K StringComparison.java
+]0;sskarmaly@costello:~/cs1400[01;32msskarmaly@costello[01;34m ~/cs1400 $[00m java String [KComparison
+Enter three strings: 
+charlie
+baker
+able
+able
+baker
+charlie
+]0;sskarmaly@costello:~/cs1400[01;32msskarmaly@costello[01;34m ~/cs1400 $[00m java StringComparison
+Enter three strings: 
+baker 
+able 
+charlie
+able 
+baker 
+charlie
+]0;sskarmaly@costello:~/cs1400[01;32msskarmaly@costello[01;34m ~/cs1400 $[00m java StringComparison
+Enter three strings: 
+charlier 
+baker
+able
+able
+baker
+charlie
+]0;sskarmaly@costello:~/cs1400[01;32msskarmaly@costello[01;34m ~/cs1400 $[00m java StringComparison
+Enter three strings: 
+able
+baker
+charlie
+able
+baker
+charlie
+]0;sskarmaly@costello:~/cs1400[01;32msskarmaly@costello[01;34m ~/cs1400 $[00m java StringComparison
+Enter three strings: 
+able
+chalr  rlier
+baker
+able
+baker
+charlier
+]0;sskarmaly@costello:~/cs1400[01;32msskarmaly@costello[01;34m ~/cs1400 $[00m cat StringComparisonWithWildCard.java
+import java.util.Scanner;
+
+public class StringComparisonWithWildCard
+{
+   public static void main(String [] args)
+   {
+
+      Scanner kb = new Scanner(System.in );
+      String s1;
+      String s2;
+      System.out.print("enter string 1 : ");
+      s1 = kb.nextLine();
+      System.out.print("enter string 2 : ");
+      s2 = kb.nextLine();
+
+      if(s1.length() != s2.length())
+      {
+         System.out.println("they are different");
+      }
+      boolean match = true;
+      for(int i = 0; i<s1.length() ; i++) 
+      {
+         if(s1.charAt(i) != s2.charAt(i))
+         {
+            match = false;
+            break;
+         }
+      }
+
+      if(match)
+      {
+         System.out.println("they are equal.");
+      }
+      else
+      {
+         System.out.println("they are different");
+      }
+
+
+   }
+}
+]0;sskarmaly@costello:~/cs1400[01;32msskarmaly@costello[01;34m ~/cs1400 $[00m javac StringComparisonWithWildCard.java
+]0;sskarmaly@costello:~/cs1400[01;32msskarmaly@costello[01;34m ~/cs1400 $[00m java StringComparisonWithWildCard
+enter string 1 : hey
+enter string 2 : hey
+they are equal.
+]0;sskarmaly@costello:~/cs1400[01;32msskarmaly@costello[01;34m ~/cs1400 $[00m ab?[K[K[Kjava StringComparisonWithWildCard
+enter string 1 : abc
+enter string 2 : abd cd
+they are different
+they are equal.
+]0;sskarmaly@costello:~/cs1400[01;32msskarmaly@costello[01;34m ~/cs1400 $[00m java StringComparisonWithWildCard
+enter string 1 : ab?
+enter string 2 : a?p
+they are different
+]0;sskarmaly@costello:~/cs1400[01;32msskarmaly@costello[01;34m ~/cs1400 $[00m a[Kjava StringComparisonWithWildCard
+enter string 1 : ab?de
+enter string 2 : abzde
+they are different
+]0;sskarmaly@costello:~/cs1400[01;32msskarmaly@costello[01;34m ~/cs1400 $[00m abd
+bash: abd: command not found
+]0;sskarmaly@costello:~/cs1400[01;32msskarmaly@costello[01;34m ~/cs1400 $[00m a[Kabdjava StringComparisonWithWildCard
+enter string 1 : abd
+enter string 2 : abd
+they are equal.
+]0;sskarmaly@costello:~/cs1400[01;32msskarmaly@costello[01;34m ~/cs1400 $[00m java StringComparisonWithWildCard
+enter string 1 : ab bcdefg
+enter string 2 : abcdefg
+they are equal.
+]0;sskarmaly@costello:~/cs1400[01;32msskarmaly@costello[01;34m ~/cs1400 $[00m exit
+
+Script done on 2020-02-18 22:35:30-08:00 [COMMAND_EXIT_CODE="0"]
